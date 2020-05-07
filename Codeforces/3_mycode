@@ -1,0 +1,19 @@
+def sign(n):
+    return n > 0
+
+for _ in range(int(input())):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    ans = 0
+    i = 0
+    while i < n:
+        j = i
+        mx = arr[i]
+        while j < n and sign(arr[i]) == sign(arr[j]):
+            mx = max(arr[j], mx)
+            j += 1
+        i = j - 1
+        ans += mx
+        i += 1
+    print(ans)
+
